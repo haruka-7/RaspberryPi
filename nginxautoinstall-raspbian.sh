@@ -94,7 +94,6 @@ displayandexec "Update the repositories list" $APT_GET update
 # Pre-requis
 displayandexec "Install development tools" $APT_GET install build-essential libpcre3-dev libssl-dev zlib1g-dev
 displayandexec "Install PHP" $APT_GET install php5-cli php5-common php5-fpm php-pear php5-gd php5-curl
-displayandexec "Install Redis" $APT_GET install redis-server php5-redis
 
 displaytitle "Install NGinx version $NGINX_VERSION"
 
@@ -182,10 +181,6 @@ echo "iptables -A OUTPUT -o lo -s localhost -d localhost -j ACCEPT"
 echo "iptables -A OUTPUT -m state --state RELATED,ESTABLISHED -j ACCEPT"
 echo "iptables -A INPUT  -p tcp --dport http -j ACCEPT"
 echo ""
-echo "If you want to manage your PHP session with Redis,"
-echo "just add this two line in the /etc/php5/fpm/php.ini file:"
-echo "  session.save_handler = redis"
-echo "  session.save_path = \"tcp://127.0.0.1:6379?weight=1\""
 echo "------------------------------------------------------------------------------"
 echo ""
 
