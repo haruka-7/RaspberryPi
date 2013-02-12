@@ -3,8 +3,8 @@
 # My own script to install/upgrade NGinx+PHP5_FPM+MemCached from sources
 # Mon script d'installation/maj de NGinx+PHP5_FPM+MemCached depuis les sources
 #
-# Nicolargo - 11/2012
-# fork by P3ter
+# P3ter - 02/2013
+# fork from blog.nicolargo.com
 # LGPL
 #
 # Syntaxe: # su - -c "./nginxautoinstall.sh"
@@ -16,7 +16,7 @@ VERSION="1.53"
 # Version de NGinx a installer
 
 NGINX_VERSION="1.3.10"   # The dev version
-#NGINX_VERSION="1.2.6"   # The stable version
+#NGINX_VERSION="1.2.7"   # The stable version
 
 ###############################
 # Liste des modules a installer
@@ -26,7 +26,7 @@ NGINX_MODULES=" --with-http_dav_module --http-client-body-temp-path=/var/lib/ngi
 ##############################
 
 # Variables globales
-#-------------------
+#------------------------------------------------------------------------------
 
 APT_GET="apt-get -q -y --force-yes"
 WGET="wget --no-check-certificate"
@@ -94,7 +94,6 @@ displayandexec "Update the repositories list" $APT_GET update
 # Pre-requis
 displayandexec "Install development tools" $APT_GET install build-essential libpcre3-dev libssl-dev zlib1g-dev
 displayandexec "Install PHP" $APT_GET install php5-cli php5-common php5-fpm php-pear php5-gd php5-curl
-displayandexec "Install Redis" $APT_GET install redis-server php5-redis
 
 displaytitle "Install NGinx version $NGINX_VERSION"
 
