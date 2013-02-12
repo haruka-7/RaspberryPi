@@ -1,0 +1,51 @@
+server {
+    listen       80;
+        server_name  localhost;
+        root         /var/www/;
+
+        # Static
+        location / {
+            index  index.html index.htm index.php;
+        }
+
+        # PHP scripts -> PHP-FPM server listening on 127.0.0.1:9000
+        location ~ \.php$ {
+                 try_files $uri =404;
+                 fastcgi_pass   127.0.0.1:9000;
+                 fastcgi_index  index.php;
+                 include fastcgi_params;
+                 fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+    }
+
+    # url rewrite
+    if (-f $request_filename) {
+        break;
+    }
+    if (!-e $request_filename) {
+        rewrite ^/([^feed\/].*)$ /index.php?$1 last;
+        rewrite /feed\/(.*)$     /feed.php?$1  last;
+        break;
+    }
+
+    # Security
+    location ~ /\.ht {
+    deny  all;
+    }
+    location /version {
+        return 404;
+    }
+    location ~ /data/configuration/* {
+        return 404;
+    }
+
+    # Stuffs
+    location = /favicon.ico {
+        access_log off;
+        return 204;
+    }
+
+    location ~* ^.+\.(jpg|jpeg|gif|css|png|js|xml)$ {
+        expires 30d;
+        #access_log off;
+    }
+}
