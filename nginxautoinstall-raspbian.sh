@@ -134,7 +134,7 @@ fi
 # Nginx + default site
 if [ $TAGINSTALL == 1 ]
 then
-  displayandexec "Init the default configuration file for NGinx" "$WGET https://raw.github.com/P3ter/Serveur/master/nginx/nginx.conf ; $WGET https://raw.github.com/P3ter/RaspberryPi/master/nginx/gitphp ; mv nginx.conf /etc/nginx/ ; mv gitphp /etc/nginx/sites-enabled/"
+  displayandexec "Init the default configuration file for NGinx" "$WGET https://raw.github.com/P3ter/Serveur/master/nginx/nginx.conf ; $WGET https://raw.github.com/P3ter/RaspberryPi/master/nginx/default ; mv nginx.conf /etc/nginx/ ; mv default /etc/nginx/sites-enabled/"
 fi
 
 # Download the init script
