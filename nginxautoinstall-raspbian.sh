@@ -15,7 +15,7 @@ VERSION="1.53"
 ##############################
 # Version de NGinx a installer
 
-NGINX_VERSION="1.3.10"   # The dev version
+NGINX_VERSION="1.3.15"   # The dev version
 #NGINX_VERSION="1.2.7"   # The stable version
 
 ###############################
