@@ -15,8 +15,8 @@ VERSION="1.0"
 ##############################
 # Version de NGinx a installer
 
-NGINX_VERSION="1.4.0"   # The dev version
-#NGINX_VERSION="1.4.0"   # The stable version
+NGINX_VERSION="1.5.0"   # The dev version
+#NGINX_VERSION="1.4.1"   # The stable version
 
 ###############################
 # Liste des modules a installer
