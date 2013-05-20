@@ -1,7 +1,7 @@
 #!/bin/bash
 #
-# My own script to install/upgrade NGinx+PHP5_FPM+MemCached from sources
-# Mon script d'installation/maj de NGinx+PHP5_FPM+MemCached depuis les sources
+# My own script to install/upgrade NGinx+PHP5_FPM from sources
+# Mon script d'installation/maj de NGinx+PHP5_FPM depuis les sources
 #
 # P3ter - 02/2013
 # fork from blog.nicolargo.com
@@ -10,7 +10,7 @@
 # Syntaxe: # su - -c "./nginxautoinstall.sh"
 # Syntaxe: or # sudo ./nginxautoinstall.sh
 #
-VERSION="1.0"
+VERSION="1.1"
 
 ##############################
 # Version de NGinx a installer
@@ -134,11 +134,11 @@ fi
 # Nginx + default site
 if [ $TAGINSTALL == 1 ]
 then
-  displayandexec "Init the default configuration file for NGinx" "$WGET https://raw.github.com/P3ter/Serveur/master/nginx/nginx.conf ; $WGET https://raw.github.com/P3ter/RaspberryPi/master/nginx/default ; mv nginx.conf /etc/nginx/ ; mv default /etc/nginx/sites-enabled/"
+  displayandexec "Init the default configuration file for NGinx" "$WGET https://raw.github.com/P3ter/RaspberryPi/master/nginx/nginx.conf ; $WGET https://raw.github.com/P3ter/RaspberryPi/master/nginx/default ; mv nginx.conf /etc/nginx/ ; mv default /etc/nginx/sites-enabled/"
 fi
 
 # Download the init script
-displayandexec "Install the NGinx init script" "$WGET https://raw.github.com/P3ter/Serveur/master/nginx/nginx ; mv nginx /etc/init.d/ ; chmod 755 /etc/init.d/nginx ; /usr/sbin/update-rc.d -f nginx defaults"
+displayandexec "Install the NGinx init script" "$WGET https://raw.github.com/P3ter/RaspberryPi/master/nginx/nginx ; mv nginx /etc/init.d/ ; chmod 755 /etc/init.d/nginx ; /usr/sbin/update-rc.d -f nginx defaults"
 
 # Log file rotate
 cat > /etc/logrotate.d/nginx <<EOF
