@@ -10,13 +10,13 @@
 # Syntaxe: # su - -c "./nginxautoinstall.sh"
 # Syntaxe: or # sudo ./nginxautoinstall.sh
 #
-VERSION="1.1.1"
+VERSION="1.1.2"
 
 ##############################
 # Version de NGinx a installer
 
-NGINX_VERSION="1.5.1"   # The dev version
-#NGINX_VERSION="1.4.1"   # The stable version
+NGINX_VERSION="1.5.10"   # The dev version
+#NGINX_VERSION="1.4.4"   # The stable version
 
 ###############################
 # Liste des modules a installer
