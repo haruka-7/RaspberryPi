@@ -22,7 +22,7 @@ server {
         break;
     }
     if (!-e $request_filename) {
-        rewrite ^/([^feed\/].*)$ /index.php?$1 last;
+        rewrite ^/(?!feed)(.*)$ /index.php?$1 last;
         rewrite /feed\/(.*)$     /feed.php?$1  last;
         break;
     }
